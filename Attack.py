@@ -18,6 +18,15 @@ def attack():
     analyze()
     Clicker.drag_top_left()
     place_troops("dragon", 9, 1050, 100, 280, 680)
+    fight_over()
+
+
+def fight_over():
+    rects = []
+    while(len(rects) == 0):
+        time.sleep(5)
+        rects = f.find_image(im.get_fullScreenshot(), im.get_image("nach_hause"), 0.7)
+    Clicker.click(rects[0][0], rects[0][1])
 
 
 

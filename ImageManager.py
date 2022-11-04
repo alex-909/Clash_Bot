@@ -5,8 +5,20 @@ import pyscreenshot as ImageGrab
 root = r"images"
 
 def get_image(name):
+    if name == "confirm_upgrade":
+        path = root + r"\confirm_upgrade.png"
+
+    if name == "upgrade_hammer":
+        path = root + r"\upgrade_hammer.png"
+
+    if name == "builder":
+        path = root + r"\builder.png"
+
+    if name == "nach_hause":
+        path = root + r"\nach_hause.png"
+
     if name == "map":
-        path = root + r"\attackmap.png"
+        path = root + r"\attackmap2.png"
 
     if name == "dragon":
         path = root + r"\dragon.png"
