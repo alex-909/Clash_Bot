@@ -5,6 +5,8 @@ import pyscreenshot
 import time
 
 def upgrade():
+
+    resources = get_resources
     n = number_of_builders()
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
     Clicker.click(rects[0][0], rects[0][1])
@@ -60,7 +62,7 @@ def find_wall():
             img = pyscreenshot.grab((x1,y1,width+x1,height+y1))
             #img.show()
             s = f.read_text(image)
-            print(s)
+            #print(s)
             if("Mauer" in s):
                 wall_found = True
                 print("found!")
@@ -74,8 +76,13 @@ def number_of_builders():
     image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
     #image = pyscreenshot.grab((rects[0][0]+60, rects[0][1], rects[0][0]+170, rects[0][1] +50))
     s = f.read_text(image)
+    if(s[0] == "V" or s[0] == "/"):
+        return 1
     return int(s[0])
 
 
 def upgrade_wall():
+    pass
+
+def get_resources():
     pass

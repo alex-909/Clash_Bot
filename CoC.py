@@ -1,15 +1,14 @@
-import cv2
+
 import Attack as a
 import Upgrade as u
 import keyboard
-import ImageManager
-import Clicker
-import time
+
 
 print("start")
 while(keyboard.is_pressed('q') == False):
     pass
+while(keyboard.is_pressed('e') == False):
+    while(not a.army_done()):
+        u.upgrade()
 
-a.attack()
-time.sleep(6)
-u.upgrade()
+    a.attack()
