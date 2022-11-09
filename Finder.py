@@ -22,7 +22,7 @@ def find_image(base, obj, threshold):
     return rectangles
 
 def read_text(img):
-    pytesseract.pytesseract.tesseract_cmd = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     noise =cv2.medianBlur(gray,3)
     thresh = cv2.threshold(noise, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1] 

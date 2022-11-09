@@ -15,7 +15,7 @@ def upgrade():
         pass
     else:
         find_wall()
-    gold = 1_000_000
+    gold = 0
     elixir = 500_000
     execute_upgrade(gold, elixir)
 
@@ -76,7 +76,8 @@ def number_of_builders():
     image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
     #image = pyscreenshot.grab((rects[0][0]+60, rects[0][1], rects[0][0]+170, rects[0][1] +50))
     s = f.read_text(image)
-    if(s[0] == "V" or s[0] == "/"):
+    print("builders: " + s)
+    if(s[0] == "V" or s[0] == "v" or s[0] == "/"):
         return 1
     return int(s[0])
 
@@ -85,4 +86,11 @@ def upgrade_wall():
     pass
 
 def get_resources():
+    rects = f.find_image(im.get_fullScreenshot(),im.get_image("gold"),0.8)
+
+    #image = im.get_Screenshot(rects[0][0]-225,rects[0][1],200,50)
+    image = im.get_Screenshot(rects[0][0]-200,rects[0][1] + 12,175,32)
+    s = f.read_text(image)
+    print(s)
+    
     pass

@@ -23,6 +23,7 @@ def attack():
     place_troops("dragon", 9, 1050, 100, 280, 680)
     place_troops("barb", 5, 1050, 100, 280, 680)
     place_troops("king", 1, 1050, 100, 280, 680)
+    place_troops("queen", 1, 1050, 100, 280, 680)
     fight_over()
     new_troops()
 
@@ -38,7 +39,7 @@ def fight_over():
 
 
 def findEnemy():
-    rects = f.find_image(im.get_image("base"), im.get_image("map"), 0.7)
+    rects = f.find_image(im.get_image("base"), im.get_image("attackmap"), 0.7)
     Clicker.click(rects[0][0], rects[0][1])
     time.sleep(0.5)
     rects = f.find_image(im.get_image("base"), im.get_image("findEnemy1"), 0.7)
@@ -85,19 +86,23 @@ def destroy_air_defence(spellamount):
 def place_troops(troop, number, x1, y1, x2, y2):
     
     rects = f.find_image(im.get_fullScreenshot(), im.get_image(troop), 0.7)
-    Clicker.click(rects[0][0], rects[0][1])
+    if(len(rects) > 0):
+        Clicker.click(rects[0][0], rects[0][1])
 
+    time.sleep(0.2)
     for i in range(number):
         r = random()
         xPos = (x2-x1)*r + x1
         yPos = (y2-y1)*r + y1
         Clicker.click(xPos, yPos)
-        time.sleep(0.319283712893)
+        time.sleep(0.2)
 
 def place_spell(spell, amount, x, y):
     
     rects = f.find_image(im.get_fullScreenshot(), im.get_image(spell), 0.7)
-    Clicker.click(rects[0][0], rects[0][1])
+    if(len(rects) > 0):
+        Clicker.click(rects[0][0], rects[0][1])
+    
     time.sleep(0.2)
     for i in range(amount):
         Clicker.click(x,y)
@@ -131,4 +136,29 @@ def army_done():
         return False
 
     return True     
+
+def checkarmy(troops):
+    
+# BEISPIEL: troops = ["barb","dragon"]
+
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.8)
+    Clicker.click(rects[0][0], rects[0][1])
+
+    amounts = [] #jeweilige Anzahl an ausgebildeten Truppen
+
+    for i in troops:
+        rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
+        if(len(rects) > 0):
+            image = im.get_Screenshot(rects[0][0] - 25, rects[0][1] - 50, 90, 38)
+            s = f.read_text(image)
+        else:
+            s = "0"
+        
+        amounts.append(s)
+
+    print(amounts)
+    
+    return(amounts)
+
+   
     

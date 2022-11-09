@@ -4,61 +4,7 @@ import pyscreenshot as ImageGrab
 
 root = r"images"
 
-def get_image(name):
-
-    if name == "train":
-        path = root + r"\train.png"
-
-    if name == "army_done":
-        path = root + r"\army_done.png"
-
-    if name == "escape":
-        path = root + r"\escape.png"
-
-    if name == "army":
-        path = root + r"\army.png"
-
-    if name == "army_menu":
-        path = root + r"\army_menu.png"    
-
-    if name == "confirm_upgrade":
-        path = root + r"\confirm_upgrade.png"
-
-    if name == "upgrade_hammer":
-        path = root + r"\upgrade_hammer.png"
-
-    if name == "builder":
-        path = root + r"\builder.png"
-
-    if name == "nach_hause":
-        path = root + r"\nach_hause.png"
-
-    if name == "map":
-        path = root + r"\attackmap2.png"
-
-    if name == "dragon":
-        path = root + r"\dragon.png"
-
-    if name == "barb":
-        path = root + r"\barb.png" 
-
-    if name == "king":
-        path = root + r"\king.png"         
-
-    if name == "lightning":
-        path = root + r"\lightning.png"   
-
-    if name == "findEnemy1":
-        path = root + r"\findEnemy1.png"
-
-    if name == "findEnemy2":
-        path = root + r"\findEnemy2.png"    
-
-    if name == "enemyGold":
-        path = root + r"\enemyGold.png"           
-
-    if name == "hut":
-        path = root + r"\Obj.png"    
+def get_image(name):         
 
     if name == "leftHalf":
        image = get_Screenshot(0,0,925,1000)
@@ -66,6 +12,85 @@ def get_image(name):
         
     if name == "base":
         return get_fullScreenshot()
+
+    if name == "escape":
+        path = root + r"\escape.png"  
+
+    #resources
+
+    if name == "gold":
+        path = root + r"\resources\gold.png"
+
+    if name == "enemyGold":
+        path = root + r"\resources\enemyGold.png"
+
+    if name == "collect_gold":
+        path = root + r"\resources\collect_gold.png"
+
+    if name == "collect_elixir":
+        path = root + r"\resources\collect_elixir.png"
+
+    
+    #upgrade
+
+    if name == "builder":
+        path = root + r"\upgrade\builder.png"
+
+    if name == "upgrade_hammer":
+        path = root + r"\upgrade\upgrade_hammer.png"
+
+    if name == "confirm_upgrade":
+        path = root + r"\upgrade\confirm_upgrade.png"
+
+
+    #army
+
+    if name == "army":
+        path = root + r"\army\army.png"
+
+    if name == "army_menu":
+        path = root + r"\army\army_menu.png" 
+
+    if name == "train":
+        path = root + r"\army\train.png"  
+
+    if name == "army_done":
+        path = root + r"\army\army_done.png"
+
+
+
+    #attack
+
+    if name == "attackmap":
+        path = root + r"\attack\attackmap.png"
+
+    if name == "findEnemy1":
+        path = root + r"\attack\findEnemy1.png"
+
+    if name == "findEnemy2":
+        path = root + r"\attack\findEnemy2.png"
+
+    if name == "nach_hause":
+        path = root + r"\attack\nach_hause.png"  
+
+
+
+    #troops
+
+    if name == "king":
+        path = root + r"\troops\king.png"
+
+    if name == "queen":
+        path = root + r"\troops\queen.png" 
+
+    if name == "dragon":
+        path = root + r"\troops\dragon.png"
+
+    if name == "barb":
+        path = root + r"\troops\barb.png" 
+
+    if name == "lightning":
+        path = root + r"\troops\lightning.png" 
 
     #buildings
     
