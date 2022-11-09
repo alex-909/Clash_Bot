@@ -111,7 +111,7 @@ def place_troops(troop, amount, x1, y1, x2, y2):
 
 def place_spell(spell, amount, x, y):
     
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image(spell), 0.7)
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image(spell), 0.5)
     if(len(rects) > 0):
         Clicker.click(rects)
         time.sleep(0.2)
