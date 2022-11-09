@@ -1,8 +1,13 @@
 import pyautogui
 import keyboard
 
-def click(x, y):
-    pyautogui.click(x, y)
+def click(rects):
+    if(len(rects)):
+        pyautogui.click(rects[0][0], rects[0][1])
+
+def click_xy(x, y):
+    pyautogui.click(x,y)
+
 
 def drag_top_left():
     pyautogui.moveTo(860, 440)

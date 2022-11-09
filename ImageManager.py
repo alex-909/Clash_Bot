@@ -21,6 +21,9 @@ def get_image(name):
     if name == "gold":
         path = root + r"\resources\gold.png"
 
+    if name == "elixir":
+        path = root + r"\resources\elixir.png"
+
     if name == "enemyGold":
         path = root + r"\resources\enemyGold.png"
 
@@ -83,14 +86,54 @@ def get_image(name):
     if name == "queen":
         path = root + r"\troops\queen.png" 
 
-    if name == "dragon":
-        path = root + r"\troops\dragon.png"
-
     if name == "barb":
         path = root + r"\troops\barb.png" 
 
+    if name == "archer":
+        path = root + r"\troops\archer.png"
+
+    if name == "giant":
+        path = root + r"\troops\giant.png" 
+
+    if name == "goblin":
+        path = root + r"\troops\goblin.png" 
+
+    if name == "wallbreaker":
+        path = root + r"\troops\wallbreaker.png" 
+
+    if name == "baloon":
+        path = root + r"\troops\baloon.png" 
+
+    if name == "wizard":
+        path = root + r"\troops\wizard.png" 
+
+    if name == "healer":
+        path = root + r"\troops\healer.png" 
+
+    if name == "dragon":
+        path = root + r"\troops\dragon.png"
+
+    if name == "pekka":
+        path = root + r"\troops\pekka.png"
+
+    if name == "minion":
+        path = root + r"\troops\minion.png"
+
+    if name == "hogrider":
+        path = root + r"\troops\hogrider.png"
+
+    if name == "valkyre":
+        path = root + r"\troops\valkyre.png"
+
+    if name == "golem":
+        path = root + r"\troops\golem.png"
+
+
+    #spells
+
     if name == "lightning":
-        path = root + r"\troops\lightning.png" 
+        path = root + r"\spells\lightning.png" 
+
 
     #buildings
     

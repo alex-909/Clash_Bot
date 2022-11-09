@@ -8,7 +8,7 @@ def upgrade():
 
     n = number_of_builders()
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
-    Clicker.click(rects[0][0], rects[0][1])
+    Clicker.click(rects)
     Clicker.drag_top_builder_menu()
     if(n > 1):
         pass
@@ -25,14 +25,16 @@ def execute_upgrade():
     if(len(rects) == 2):
     
         if(gold > elixir):
-            Clicker.click(rects[0][0], rects[0][1])
+            rects = rects[0]
+            Clicker.click(rects)
         else:
-            Clicker.click(rects[1][0], rects[1][1])
+            rects = rects[1]
+            Clicker.click(rects)
     else:
-        Clicker.click(rects[0][0], rects[0][1])
+        Clicker.click(rects)
     time.sleep(0.5)
 
-    Clicker.click(970, 950)
+    Clicker.click_xy(970, 950)
 
 
 
@@ -79,11 +81,14 @@ def upgrade_wall():
     execute_upgrade()
 
 def get_resources():
-    rects = f.find_image(im.get_fullScreenshot(),im.get_image("gold"),0.8)
+    rectsG = f.find_image(im.get_fullScreenshot(),im.get_image("gold"),0.8)
+    imageG = im.get_Screenshot(rectsG[0][0]-200,rectsG[0][1] + 12,175,32)
+    gold = f.read_text(imageG)
 
-    image = im.get_Screenshot(rects[0][0]-200,rects[0][1] + 12,175,32)
-    gold = f.read_text(image)
+    rectsE = f.find_image(im.get_fullScreenshot(),im.get_image("elixir"),0.8)
+    imageE = im.get_Screenshot(rectsE[0][0]-200,rectsE[0][1] + 1,175,32)
+    elixir = f.read_text(imageE)
     
-    resources = [gold]
-    
+    resources = [gold,elixir]
+
     return resources
