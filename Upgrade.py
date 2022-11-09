@@ -15,28 +15,20 @@ def upgrade():
     else:
         upgrade_wall()
 
-def execute_upgrade():
 
-    resources = get_resources() #get_resources funktioniert noch nicht
-    gold = resources[1]
-    elixir = resources[2]
+def number_of_builders():
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
+    image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
+    #image = pyscreenshot.grab((rects[0][0]+60, rects[0][1], rects[0][0]+170, rects[0][1] +50))
+    s = f.read_text(image)
+    print("builders: " + s)
+    if(s[0] == "V" or s[0] == "v" or s[0] == "/"):
+        return 1
+    return int(s[0])
 
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("upgrade_hammer"), 0.9)
-    if(len(rects) == 2):
-    
-        if(gold > elixir):
-            rects = rects[0]
-            Clicker.click(rects)
-        else:
-            rects = rects[1]
-            Clicker.click(rects)
-    else:
-        Clicker.click(rects)
-    time.sleep(0.5)
-
-    Clicker.click_xy(970, 950)
-
-
+def upgrade_wall():
+    find_wall()
+    execute_upgrade()
 
 def find_wall():
     # 460 150
@@ -65,20 +57,26 @@ def find_wall():
         if(not wall_found):
             Clicker.drag_down_builder_menu()
 
-def number_of_builders():
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
-    image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
-    #image = pyscreenshot.grab((rects[0][0]+60, rects[0][1], rects[0][0]+170, rects[0][1] +50))
-    s = f.read_text(image)
-    print("builders: " + s)
-    if(s[0] == "V" or s[0] == "v" or s[0] == "/"):
-        return 1
-    return int(s[0])
+def execute_upgrade():
 
+    resources = get_resources() #get_resources funktioniert noch nicht
+    gold = resources[1]
+    elixir = resources[2]
 
-def upgrade_wall():
-    find_wall()
-    execute_upgrade()
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("upgrade_hammer"), 0.9)
+    if(len(rects) == 2):
+    
+        if(gold > elixir):
+            rects = rects[0]
+            Clicker.click(rects)
+        else:
+            rects = rects[1]
+            Clicker.click(rects)
+    else:
+        Clicker.click(rects)
+    time.sleep(0.5)
+
+    Clicker.click_xy(970, 950)
 
 def get_resources():
     rectsG = f.find_image(im.get_fullScreenshot(),im.get_image("gold"),0.8)

@@ -1,5 +1,4 @@
 import cv2
-import enum
 import pyscreenshot as ImageGrab
 
 root = r"images"

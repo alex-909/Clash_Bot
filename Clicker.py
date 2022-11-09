@@ -1,5 +1,4 @@
 import pyautogui
-import keyboard
 
 def click(rects):
     if(len(rects)):

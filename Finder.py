@@ -1,18 +1,15 @@
 import cv2
 import numpy as np
 import pytesseract
-import pyautogui
-import ImageManager
 
+# tesseract paths:
 
-# tesseract paths
-
-# philipp
+# philipp:
 # r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
 
-# dani
+# dani:
  
-# pixl
+# pixl:
 # r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
 
 
