@@ -16,10 +16,6 @@ while(True):
         pass
     a.attack()
 
-#rects = f.find_image(im.get_fullScreenshot(), im.get_image("lightning"), 0.5)
-#print(len(rects))
-
-
 
 
 
