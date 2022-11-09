@@ -7,11 +7,3 @@ import Finder as f
 print("start")
 while(keyboard.is_pressed('q') == False):
     pass
-
-while(True):
-    while(not a.army_done()):
-        u.upgrade()
-
-    a.attack()
-
-

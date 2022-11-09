@@ -137,7 +137,7 @@ def army_done():
 
     return True     
 
-def checkarmy(troops):
+def check_army(troops):
     
 # BEISPIEL: troops = ["barb","dragon"]
 
