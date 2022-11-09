@@ -6,7 +6,6 @@ import time
 
 def upgrade():
 
-    resources = get_resources
     n = number_of_builders()
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
     Clicker.click(rects[0][0], rects[0][1])
@@ -14,21 +13,17 @@ def upgrade():
     if(n > 1):
         pass
     else:
-        find_wall()
-    gold = 0
-    elixir = 500_000
-    execute_upgrade(gold, elixir)
+        upgrade_wall()
 
-def execute_upgrade(gold, elixir):
+def execute_upgrade():
+
+    resources = get_resources() #get_resources funktioniert noch nicht
+    gold = resources[1]
+    elixir = resources[2]
+
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("upgrade_hammer"), 0.9)
     if(len(rects) == 2):
-        """
-        if(rects[0][0] > rects[0][1]):
-            temp = rects[0]
-            rects[0] = rects[1]
-            rects[1] = temp
-        """
-        
+    
         if(gold > elixir):
             Clicker.click(rects[0][0], rects[0][1])
         else:
@@ -36,8 +31,7 @@ def execute_upgrade(gold, elixir):
     else:
         Clicker.click(rects[0][0], rects[0][1])
     time.sleep(0.5)
-    #rects = f.find_image(im.get_fullScreenshot(), im.get_image("confirm_upgrade"), 0.7)
-    #Clicker.click(rects[0][0], rects[0][1])
+
     Clicker.click(970, 950)
 
 
@@ -60,9 +54,7 @@ def find_wall():
             y1 = 150 + (i*20)
             image = im.get_Screenshot(x1,y1, width, height)
             img = pyscreenshot.grab((x1,y1,width+x1,height+y1))
-            #img.show()
             s = f.read_text(image)
-            #print(s)
             if("Mauer" in s):
                 wall_found = True
                 print("found!")
@@ -83,14 +75,15 @@ def number_of_builders():
 
 
 def upgrade_wall():
-    pass
+    find_wall()
+    execute_upgrade()
 
 def get_resources():
     rects = f.find_image(im.get_fullScreenshot(),im.get_image("gold"),0.8)
 
-    #image = im.get_Screenshot(rects[0][0]-225,rects[0][1],200,50)
     image = im.get_Screenshot(rects[0][0]-200,rects[0][1] + 12,175,32)
-    s = f.read_text(image)
-    print(s)
+    gold = f.read_text(image)
     
-    pass
+    resources = [gold]
+    
+    return resources

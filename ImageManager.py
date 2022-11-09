@@ -97,7 +97,7 @@ def get_image(name):
     #air defence
     if "air_defence" in name:
         level = get_Level(name)
-        path = root + r"\air_defence\air_defence_" + str(level) + ".png"
+        path = root + r"\buildings\air_defence\air_defence_" + str(level) + ".png"
 
 
         
