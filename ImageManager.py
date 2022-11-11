@@ -167,3 +167,5 @@ def get_Level(imgname):
     if(not secondlast.isnumeric()):
         secondlast = 0
     return int(last) + int(secondlast) * 10
+
+    

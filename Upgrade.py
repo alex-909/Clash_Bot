@@ -63,6 +63,7 @@ def find_upgrade(obj):
 
 def execute_upgrade(resources):
 
+
     gold = resources[0]
     elixir = resources[1]
 
@@ -80,3 +81,6 @@ def execute_upgrade(resources):
     time.sleep(0.5)
 
     Clicker.click_xy(970, 950)
+
+
+    
