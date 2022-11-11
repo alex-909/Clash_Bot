@@ -4,22 +4,21 @@ import keyboard
 import Finder as f
 import ImageManager as im
 import time as t
+import Resources as res
 
 
 print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
-while(True):
-    while(not a.army_done()):
-        t.sleep(30)
-        pass
-    a.attack()
+#while(True):
+    #while(not a.army_done()):
+        #res.collect_res()
+        #t.sleep(30)
+        
+    #a.attack()
 
-#res = u.get_resources()
-#print("gold: " + res[0])
-#print("elixir: " + res[1])
-
+print(res.get_resources())
 
 
 

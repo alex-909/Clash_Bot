@@ -26,7 +26,7 @@ def attack():
     Clicker.drag_top_left()                                             #
                                                                         #
     place_troops("dragon", 9, 1050, 100, 280, 680)                      #     Diese ganzen Zeilen werden durch die Methode place_army ersetzt
-    place_troops("barb", 5, 1050, 100, 280, 680)                        #
+    place_troops("barb", 10, 1050, 100, 280, 680)                       #
     place_troops("king", 1, 1050, 100, 280, 680)                        #
     place_troops("queen", 1, 1050, 100, 280, 680)                       #
 

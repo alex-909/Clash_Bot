@@ -32,6 +32,9 @@ def get_image(name):
     if name == "collect_elixir":
         path = root + r"\resources\collect_elixir.png"
 
+    if name == "collect_darkelixir":
+        path = root + r"\resources\collect_darkelixir.png"
+
     
     #upgrade
 
