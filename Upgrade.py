@@ -1,7 +1,6 @@
 import Finder as f
 import ImageManager as im
 import Clicker
-import pyscreenshot
 import time
 import Resources as res
 
@@ -44,8 +43,6 @@ def find_upgrade(obj):
     # height = 60 | 750 -height
     box_x1 = 460
     box_x2 = 900
-    box_y1 = 150
-    box_y2 = 750
     height = 60
     width = box_x2 - box_x1
     found = False
@@ -55,7 +52,6 @@ def find_upgrade(obj):
             x1 = box_x1
             y1 = 150 + (i*20)
             image = im.get_Screenshot(x1,y1, width, height)
-            img = pyscreenshot.grab((x1,y1,width+x1,height+y1))
             s = f.read_text(image)
             if(obj in s):
                 found = True
