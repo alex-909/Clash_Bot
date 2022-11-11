@@ -16,6 +16,9 @@ while(True):
         pass
     a.attack()
 
+#res = u.get_resources()
+#print("gold: " + res[0])
+#print("elixir: " + res[1])
 
 
 

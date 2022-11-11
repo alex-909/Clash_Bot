@@ -5,10 +5,10 @@ import Clicker
 
 import time
 
-desired_gold = 300_000
+desired_gold = 350_000
 air_defence_HP = [800,850,900,950,1000,1050,1100,1200,1300,1400,1500,1650,1750]
 lightning_damage = [150,180,210,240,270,320,400,480,560,600]
-lightning_level = 5
+lightning_level = 6
 troops = ["barb", "dragon"]
 heros = ["king", "queen"]
 spells = ["lightning"]
@@ -141,13 +141,19 @@ def place_army(troop_amounts, hero_amounts, spell_amounts):
     Clicker.drag_top_left()
 
     x = 0
-    for i in troop_amounts:
-        place_troops(troops[x], troop_amounts, 1050, 100, 280, 680)
+    for i in troops:
+        place_troops(i, troop_amounts[x], 1050, 100, 280, 680)
         x = x + 1
     
     x = 0
-    for i in hero_amounts:
-        place_troops(heros[i], hero_amounts, 1050, 100, 280, 680)
+    for i in heros:
+        place_troops(i, hero_amounts[x], 1050, 100, 280, 680)
+        x = x + 1
+
+
+    x = 0
+    for i in troops:
+        place_troops(i, troop_amounts[x], 1050, 100, 280, 680)
         x = x + 1
 
 def destroy_air_defence(spellamount):
