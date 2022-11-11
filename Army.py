@@ -43,11 +43,14 @@ def check_troops():
         rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
         if(len(rects) > 0):
             image = im.get_Screenshot(rects[0][0] + 15, rects[0][1] - 38, 90, 38)
+            image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
+            s = s[1:]
         else:
             s = "0"
         
-        amounts.append(s)
+        print(s)
+        amounts.append(int(s))
 
     return(amounts) 
 
@@ -61,7 +64,7 @@ def check_heros():
         else:
             s = "0"
         
-        amounts.append(s)
+        amounts.append(int(s))
 
     return(amounts)
 
@@ -73,11 +76,13 @@ def check_spells():
         rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
         if(len(rects) > 0):
             image = im.get_Screenshot(rects[0][0] - 25, rects[0][1] - 50, 90, 38)
+            image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
+            s = s[1:]
         else:
             s = "0"
         
-        amounts.append(s)
+        amounts.append(int(s))
 
     return amounts
 

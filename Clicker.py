@@ -3,6 +3,8 @@ import pyautogui
 def click(rects):
     if(len(rects)):
         pyautogui.click(rects[0][0], rects[0][1])
+    else:
+        print("rects is empty at CLicker.py!")
 
 def click_xy(x, y):
     pyautogui.click(x,y)
