@@ -2,6 +2,7 @@ from random import random
 import Finder as f
 import ImageManager as im
 import Clicker
+import Army as a
 
 import time
 
@@ -16,7 +17,7 @@ spells = ["lightning"]
 
 def attack():
 
-    troop_amounts, hero_amounts, spell_amounts = check_army()
+    troop_amounts, hero_amounts, spell_amounts = a.check_army()
 
     findEnemy()
 
@@ -31,81 +32,7 @@ def attack():
     place_troops("queen", 1, 1050, 100, 280, 680)                       #
 
     fight_over()
-    new_troops()
-
-def army_done():
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.7)
-    Clicker.click(rects)   
-    time.sleep(0.1) 
-    isdone = f.find_image(im.get_Screenshot(0,0,500,300), im.get_image("army_done"), 0.7)  
-
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
-    Clicker.click(rects)   
-
-    if len(isdone) == 0:
-
-        return False
-
-    return True     
-
-def check_army():
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.8)
-    Clicker.click(rects)
-
-    troop_amounts = check_troops()
-    hero_amounts = check_heros()
-    spell_amounts = check_spells()
-
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
-    Clicker.click(rects)
-
-    return (troop_amounts, hero_amounts, spell_amounts)
-
-def check_troops():
-
-    amounts = [] #jeweilige Anzahl an ausgebildeten Truppen
-
-    for i in troops:
-        rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
-        if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] + 15, rects[0][1] - 38, 90, 38)
-            s = f.read_text(image)
-        else:
-            s = "0"
-        
-        amounts.append(s)
-
-    return(amounts)
-
-def check_heros():
-    amounts = [] #jeweilige Anzahl an ausgebildeten Truppen
-
-    for i in heros:
-        rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
-        if(len(rects) > 0):
-            s = "1"
-        else:
-            s = "0"
-        
-        amounts.append(s)
-
-    return(amounts)
-
-def check_spells():
-
-    amounts = [] #jeweilige Anzahl an ausgebildeten Zaubern
-
-    for i in spells:
-        rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
-        if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] - 25, rects[0][1] - 50, 90, 38)
-            s = f.read_text(image)
-        else:
-            s = "0"
-        
-        amounts.append(s)
-
-    return amounts
+    a.new_troops()
 
 
 
@@ -203,16 +130,3 @@ def fight_over():
         rects = f.find_image(im.get_fullScreenshot(), im.get_image("nach_hause"), 0.7)
     Clicker.click(rects)
     time.sleep(3)
-
-def new_troops():
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.7)
-    Clicker.click(rects)   
-    time.sleep(0.1) 
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("army_menu"), 0.7)
-    Clicker.click(rects)
-    time.sleep(0.5) 
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("train"), 0.7)
-    Clicker.click(rects)
-    time.sleep(0.5) 
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
-    Clicker.click(rects)   
