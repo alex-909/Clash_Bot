@@ -150,12 +150,6 @@ def place_army(troop_amounts, hero_amounts, spell_amounts):
         place_troops(i, hero_amounts[x], 1050, 100, 280, 680)
         x = x + 1
 
-
-    x = 0
-    for i in troops:
-        place_troops(i, troop_amounts[x], 1050, 100, 280, 680)
-        x = x + 1
-
 def destroy_air_defence(spellamount):
     
     for j in range(12):                                                      #number of air defence levels -1
