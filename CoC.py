@@ -11,14 +11,13 @@ print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
-#while(True):
-    #while(not a.army_done()):
-        #res.collect_res()
-        #t.sleep(30)
+while(True):
+    while(not a.army_done()):
+        res.collect_res()
+        t.sleep(30)
         
-    #a.attack()
+    a.attack()
 
-print(res.get_resources())
 
 
 
