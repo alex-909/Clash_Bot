@@ -19,6 +19,3 @@ while(True):
     a.attack()
 
 
-
-
-

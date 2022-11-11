@@ -11,6 +11,8 @@ def upgrade():
 
     n = number_of_builders()
     
+    open_buildermenu()
+
     if(n > 1):
         pass
     else:
@@ -33,10 +35,10 @@ def open_buildermenu():
     Clicker.drag_top_builder_menu()
 
 def upgrade_wall(resources):
-    find_wall()
+    find_upgrade("Mauer")
     execute_upgrade(resources)
 
-def find_wall():
+def find_upgrade(obj):
     # 460 150
     # 900 150
     # height = 60 | 750 -height
@@ -46,21 +48,21 @@ def find_wall():
     box_y2 = 750
     height = 60
     width = box_x2 - box_x1
-    wall_found = False
+    found = False
 
-    while(not wall_found):
+    while(not found):
         for i in range(30):
             x1 = box_x1
             y1 = 150 + (i*20)
             image = im.get_Screenshot(x1,y1, width, height)
             img = pyscreenshot.grab((x1,y1,width+x1,height+y1))
             s = f.read_text(image)
-            if("Mauer" in s):
-                wall_found = True
+            if(obj in s):
+                found = True
                 print("found!")
-                Clicker.click(x1 + 20, y1 + 30)
+                Clicker.click_xy(x1 + 20, y1 + 30)
                 break
-        if(not wall_found):
+        if(not found):
             Clicker.drag_down_builder_menu()
 
 def execute_upgrade(resources):
@@ -72,10 +74,10 @@ def execute_upgrade(resources):
     if(len(rects) == 2):
     
         if(gold > elixir):
-            rects = rects[0]
+            rects[0] = rects[0]
             Clicker.click(rects)
         else:
-            rects = rects[1]
+            rects[0] = rects[1]
             Clicker.click(rects)
     else:
         Clicker.click(rects)
