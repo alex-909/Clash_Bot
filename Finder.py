@@ -45,24 +45,16 @@ def filter_pixels(img, _r, _g, _b):
                 img[h,w] = (0,0,0)
     return img
 
-    
 
 def text_to_Int(text): # needs fixing
-    result = 0
-    n = 0
-    for i in range(len(text)):
-        s = text[len(text)-i-1]
-        if(s.isnumeric()):
-            result = result + int(s) * 10**n
-            n = n + 1
-        elif(s == " "): 
-            pass
-        elif(s == "S"):
-            result = result + 5 * 10**n
-            n = n + 1
-        else:
-            n = n + 1
-    return result / 10        
+    pairs = [
+        ("S", "5"), 
+        (" ", ""),
+        ("I", "1"),
+        ]
+    for pair in pairs:
+        text = text.replace(pair[0], pair[1])
+    return int(text)
           
 
         

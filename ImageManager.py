@@ -15,7 +15,7 @@ def get_image(name):
     if name == "escape":
         path = root + r"\escape.png"  
 
-    #resources
+    #region resources
 
     if name == "gold":
         path = root + r"\resources\gold.png"
@@ -35,8 +35,9 @@ def get_image(name):
     if name == "collect_darkelixir":
         path = root + r"\resources\collect_darkelixir.png"
 
+    #endregion
     
-    #upgrade
+    #region upgrade
 
     if name == "builder":
         path = root + r"\upgrade\builder.png"
@@ -47,8 +48,9 @@ def get_image(name):
     if name == "confirm_upgrade":
         path = root + r"\upgrade\confirm_upgrade.png"
 
+    #endregion
 
-    #army
+    #region army
 
     if name == "army":
         path = root + r"\army\army.png"
@@ -62,9 +64,9 @@ def get_image(name):
     if name == "army_done":
         path = root + r"\army\army_done.png"
 
+    #endregion
 
-
-    #attack
+    #region attack
 
     if name == "attackmap":
         path = root + r"\attack\attackmap.png"
@@ -78,9 +80,9 @@ def get_image(name):
     if name == "nach_hause":
         path = root + r"\attack\nach_hause.png"  
 
+    #endregion
 
-
-    #troops
+    #region troops
 
     if name == "king":
         path = root + r"\troops\king.png"
@@ -130,20 +132,22 @@ def get_image(name):
     if name == "golem":
         path = root + r"\troops\golem.png"
 
+    #endregion
 
-    #spells
+    #region spells
 
     if name == "lightning":
         path = root + r"\spells\lightning.png" 
 
+    #endregion
 
-    #buildings
+    #region buildings
     
-    #air defence
     if "air_defence" in name:
         level = get_Level(name)
         path = root + r"\buildings\air_defence\air_defence_" + str(level) + ".png"
 
+    #endregion
 
         
     return cv2.imread(path)    

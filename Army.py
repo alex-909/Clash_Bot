@@ -46,6 +46,7 @@ def check_troops():
             image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
             s = s[1:]
+            s = f.text_to_Int(s)
         else:
             s = "0"
         
@@ -73,12 +74,13 @@ def check_spells():
     amounts = [] #jeweilige Anzahl an ausgebildeten Zaubern
 
     for i in spells:
-        rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
+        rects = f.find_image(im.get_fullScreenshot(), im.get_image(i), 0.7)
         if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] - 25, rects[0][1] - 50, 90, 38)
+            image = im.get_Screenshot(rects[0][0] +15, rects[0][1] - 45, 90, 42)
             image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
             s = s[1:]
+            s = f.text_to_Int(s)
         else:
             s = "0"
         
