@@ -21,7 +21,7 @@ def upgrade():
 def number_of_builders():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
     image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
-    #image = pyscreenshot.grab((rects[0][0]+60, rects[0][1], rects[0][0]+170, rects[0][1] +50))
+    image = f.filter_pixels(image, 255, 255, 255)
     s = f.read_text(image)
     print("builders: " + s)
     if(s[0] == "V" or s[0] == "v" or s[0] == "/"):
