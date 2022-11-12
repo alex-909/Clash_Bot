@@ -49,6 +49,7 @@ def filter_pixels(img, _r, _g, _b):
 def text_to_Int(text): # needs fixing
     pairs = [
         ("S", "5"), 
+        ("s", "5"), 
         (" ", ""),
         ("I", "1"),
         ]
