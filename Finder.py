@@ -52,6 +52,7 @@ def text_to_Int(text): # needs fixing
         ("s", "5"), 
         (" ", ""),
         ("I", "1"),
+        ("i", "1"), 
         ]
     for pair in pairs:
         text = text.replace(pair[0], pair[1])
