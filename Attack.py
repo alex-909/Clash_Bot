@@ -9,7 +9,7 @@ import time
 desired_gold = 200_000
 air_defence_HP = [800,850,900,950,1000,1050,1100,1200,1300,1400,1500,1650,1750]
 lightning_damage = [150,180,210,240,270,320,400,480,560,600]
-lightning_level = 6
+lightning_level = 7
 troops = ["barb", "dragon"]
 heroes = ["king", "queen"]
 spells = ["lightning"]
@@ -24,6 +24,8 @@ def attack():
     place_army(troop_amounts, hero_amounts, spell_amounts)
 
     fight_over()
+    check_starbonus
+    
     a.new_troops()
 
 
@@ -47,6 +49,7 @@ def checkEnemy():
         rects = f.find_image(im.get_image("leftHalf"), im.get_image("enemyGold"), 0.7)
     
     image = im.get_Screenshot(rects[0][0] + 40, rects[0][1]-10, 300, 40)
+    image = f.filter_pixels(image, 255, 251, 204)
     gold = f.read_text(image)
     goldNumber = f.text_to_Int(gold) 
     print("gold: " + str(goldNumber))
@@ -80,6 +83,9 @@ def destroy_air_defence(spellamount):
             if spells_required > spellamount:
                 place_spell("lightning",spellamount, rects[0][0], rects[0][1])
                 spellamount = 0
+            elif spells_required.is_integer():
+                place_spell("lightning",int(spells_required), rects[0][0], rects[0][1])
+                spellamount = spellamount- (int(spells_required))
             else:
                 place_spell("lightning",int(spells_required)+1, rects[0][0], rects[0][1])
                 spellamount = spellamount- (int(spells_required)+1)
@@ -120,3 +126,8 @@ def fight_over():
         rects = f.find_image(im.get_fullScreenshot(), im.get_image("nach_hause"), 0.7)
     Clicker.click(rects)
     time.sleep(3)
+
+def check_starbonus():
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
+    Clicker.click(rects)
+    time.sleep(1)      

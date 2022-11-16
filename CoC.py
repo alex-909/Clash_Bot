@@ -8,18 +8,24 @@ import time as t
 import Resources as res
 import cv2
 
+def main():
+    while(True):
+        while(not army.army_done()):
+            res.collect_res()
+            t.sleep(30)
+ 
+        a.attack()
+
+def test():
+    print(army.check_army())
 
 print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
+test()
 
-while(True):
-    while(not army.army_done()):
-        res.collect_res()
-        t.sleep(30)
-        
-    a.attack()
+
 
 
 

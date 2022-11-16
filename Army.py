@@ -11,16 +11,12 @@ def army_done():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.7)
     Clicker.click(rects)   
     time.sleep(0.1) 
-    isdone = f.find_image(im.get_Screenshot(0,0,500,300), im.get_image("army_done"), 0.7)  
+    troops_done = f.find_image(im.get_image("leftHalf"), im.get_image("army_done"), 0.7)
 
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
     Clicker.click(rects)   
 
-    if len(isdone) == 0:
-
-        return False
-
-    return True    
+    return len(troops_done) == 2
 
 def check_army():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("army"), 0.8)
@@ -42,7 +38,7 @@ def check_troops():
     for i in troops:
         rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
         if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] + 15, rects[0][1] - 38, 90, 38)
+            image = im.get_Screenshot(rects[0][0] + 10, rects[0][1] - 45, 105, 55)
             image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
             s = s[1:]
@@ -76,7 +72,7 @@ def check_spells():
     for i in spells:
         rects = f.find_image(im.get_fullScreenshot(), im.get_image(i), 0.7)
         if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] +15, rects[0][1] - 45, 90, 42)
+            image = im.get_Screenshot(rects[0][0] +10, rects[0][1] - 45, 105, 55)
             image = f.filter_pixels(image, 255, 255, 255)
             s = f.read_text(image)
             s = s[1:]
@@ -84,6 +80,7 @@ def check_spells():
         else:
             s = "0"
         
+        print(s)
         amounts.append(int(s))
 
     return amounts

@@ -6,7 +6,7 @@ root = r"images"
 def get_image(name):         
 
     if name == "leftHalf":
-       image = get_Screenshot(0,0,925,1000)
+       image = get_Screenshot(0,0,925,1080)
        return image
         
     if name == "base":
