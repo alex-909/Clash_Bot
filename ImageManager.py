@@ -48,6 +48,12 @@ def get_image(name):
     if name == "confirm_upgrade":
         path = root + r"\upgrade\confirm_upgrade.png"
 
+    if name == "upgrade_elixir":
+        path = root + r"\upgrade\elixir.png"
+    
+    if name == "upgrade_gold":
+        path = root + r"\upgrade\gold.png"
+
     #endregion
 
     #region army
@@ -190,4 +196,9 @@ def get_Level(imgname):
         secondlast = 0
     return int(last) + int(secondlast) * 10
 
-    
+def resize(img, scale_percent):
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent * 1.3 / 100)
+    dim = (int(width), height)
+    resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+    return resized

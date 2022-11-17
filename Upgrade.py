@@ -4,38 +4,58 @@ import Clicker
 import time
 import Resources as res
 
+res_threshold = 3000000;
+
 def upgrade():
 
-    resources = res.get_resources() #get_resources funktioniert noch nicht
+    (gold,elixir) = res.get_resources()
+
+    if(gold < res_threshold and elixir < res_threshold):
+        return
 
     n = number_of_builders()
+    n=1
     
     open_buildermenu()
 
     if(n > 1):
-        pass
+        upgrade_recommended(gold, elixir)
     else:
-        upgrade_wall(resources)
+        upgrade_wall(gold,elixir)
 
 
 def number_of_builders():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
-    image = im.get_Screenshot(rects[0][0]+60, rects[0][1], 110, 50)
+    image = im.get_Screenshot(rects[0][0]+50, rects[0][1]-10, 130, 70)
     image = f.filter_pixels(image, 255, 255, 255)
+    image = im.resize(image, 500)
     s = f.read_text(image)
     print("builders: " + s)
     if(s[0] == "V" or s[0] == "v" or s[0] == "/"):
         return 1
-    return int(s[0])
+    return f.text_to_Int(s[0])
 
 def open_buildermenu():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
     Clicker.click(rects)
     Clicker.drag_top_builder_menu()
 
-def upgrade_wall(resources):
+def upgrade_wall(gold, elixir):
     find_upgrade("Mauer")
-    execute_upgrade(resources)
+    execute_upgrade(gold, elixir)
+
+def upgrade_recommended(gold, elixir):
+    if gold > elixir:
+        rects = f.find_image(im.get_Screenshot(440,140,655,615), im.get_image("upgrade_gold"), 0.8)
+        if(len(rects) == 0):
+            rects = f.find_image(im.get_Screenshot(440,140,655,615), im.get_image("upgrade_elixir"), 0.8)
+    else:
+        rects = f.find_image(im.get_Screenshot(440,140,655,615), im.get_image("upgrade_elixir"), 0.8)
+        if(len(rects) == 0):
+            rects = f.find_image(im.get_Screenshot(440,140,655,615), im.get_image("upgrade_gold"), 0.8) 
+    Clicker.click_xy(rects[0][0] + 440,rects[0][1] + 140)       #because relative to 0,0 not to the corner of the menu
+    execute_upgrade(gold, elixir)
+    pass
 
 def find_upgrade(obj):
     # 460 150
@@ -61,21 +81,23 @@ def find_upgrade(obj):
         if(not found):
             Clicker.drag_down_builder_menu()
 
-def execute_upgrade(resources):
-
-
-    gold = resources[0]
-    elixir = resources[1]
+def execute_upgrade(gold, elixir):
 
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("upgrade_hammer"), 0.9)
-    if(len(rects) == 2):
     
-        if(gold > elixir):
-            rects[0] = rects[0]
-            Clicker.click(rects)
+    
+    if(len(rects) == 2):
+        
+        if(rects[0][0]<rects[1][0]):
+            g = rects[0]
+            e = rects[1]
         else:
-            rects[0] = rects[1]
-            Clicker.click(rects)
+            g = rects[1]
+            e = rects[0]
+        if(gold > elixir):
+            Clicker.click_xy(g[0],g[1])
+        else:
+            Clicker.click_xy(e[0],e[1])
     else:
         Clicker.click(rects)
     time.sleep(0.5)

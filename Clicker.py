@@ -21,6 +21,12 @@ def drag_top_left():
     pyautogui.moveTo(1260, 840, 0.5)
     pyautogui.mouseUp(button = 'left')
 
+def drag_top_right():
+    pyautogui.moveTo(1260, 440)
+    pyautogui.mouseDown(button = 'left')
+    pyautogui.moveTo(860, 840, 0.5)
+    pyautogui.mouseUp(button = 'left')
+
 def drag_top_builder_menu():
     for i in range(10):
         pyautogui.moveTo(777, 270)

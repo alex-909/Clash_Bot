@@ -7,7 +7,7 @@ import time
 
 #tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
 #tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
-#tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
+tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
 
 def find_image(base, obj, threshold):
     result = cv2.matchTemplate(base,obj,cv2.TM_CCOEFF_NORMED)
@@ -41,13 +41,16 @@ def filter_pixels(img, _r, _g, _b):
         for w in range(_w):
             (b,g,r) = img[h,w]
             if (b == _b and g == _g and r == _r):
-                img[h,w] = (255,255,255)
-            else:
                 img[h,w] = (0,0,0)
+            else:
+                img[h,w] = (255,255,255)
     return img
 
 
 def text_to_Int(text):
+
+    if(text == ""):
+        return 0
 
     #region pairs
     pairs = [
@@ -59,14 +62,26 @@ def text_to_Int(text):
         ("l", "1"), 
         ("o","0"),
         ("O","0"),
-        ("n", "0"),
+        #("n", "0"),
         ("(", "0"),
         (")", "0"),
-        ("D", "0")
+        ("D", "0"),
+        ("B", "8")
         ]
     #endregion
+
     
     for pair in pairs:
         text = text.replace(pair[0], pair[1])
-    return int(text)
+
+    result = ""
+    for letter in text:
+        if(not letter.isnumeric()):
+            result += "0"
+        else:
+            result += letter
+    
+
+    print("test to int: ", {int(result)})
+    return int(result)
           
