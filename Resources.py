@@ -27,3 +27,34 @@ def collect_res():
 
     rectsDe = f.find_image(im.get_fullScreenshot(), im.get_image("collect_darkelixir"), 0.8)
     Clicker.click(rectsDe)
+
+def get_won_res():
+
+    #region gold
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("result_gold"), 0.8)
+    image = im.get_Screenshot(rects[0][0] - 300 , rects[0][1] - 10, 280, 70)
+    image = f.filter_pixels(image, 255, 255, 255)
+    gold = f.read_text(image)
+    gold = f.text_to_Int(gold)
+    #endregion
+
+    #region elixir
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("result_elixir"), 0.8)
+    image = im.get_Screenshot(rects[0][0] - 300 , rects[0][1] - 20, 280, 70)
+    image = f.filter_pixels(image, 255, 255, 255)
+    elixir = f.read_text(image)
+    elixir = f.text_to_Int(elixir)
+    #endregion
+
+    #region dark_elixir
+    rects = f.find_image(im.get_Screenshot(0,0,1350,1080), im.get_image("result_dark_elixir"), 0.8)
+    if(len(rects) > 0):
+        image = im.get_Screenshot(rects[0][0] - 300 , rects[0][1] - 16, 280, 70)
+        image = f.filter_pixels(image, 255, 255, 255)
+        dark_elixir = f.read_text(image)
+        dark_elixir = f.text_to_Int(dark_elixir)
+    else:
+        dark_elixir = 0
+    #endregion
+
+    return(gold, elixir, dark_elixir)

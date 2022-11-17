@@ -3,8 +3,9 @@ import Finder as f
 import ImageManager as im
 import Clicker
 import Army as a
-
+import Statistics
 import time
+import Resources as res
 
 desired_gold = 200_000
 air_defence_HP = [800,850,900,950,1000,1050,1100,1200,1300,1400,1500,1650,1750]
@@ -124,10 +125,36 @@ def fight_over():
     while(len(rects) == 0):
         time.sleep(5)
         rects = f.find_image(im.get_fullScreenshot(), im.get_image("nach_hause"), 0.7)
+    
+    check_results()
+
     Clicker.click(rects)
     time.sleep(3)
 
 def check_starbonus():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
     Clicker.click(rects)
-    time.sleep(1)      
+    time.sleep(1)    
+
+def check_results():
+
+    #region win
+    rects = f.find_image(im.get_fullScreenshot(), im.get_image("win"), 0.8)
+    if(len(rects) == 1):
+        win = "Win"
+    else:
+        win = "Loose"
+    #endregion
+
+    #region trophies
+    #rects = f.find_image(im.get_fullScreenshot(), im.get_image("result_trophie"), 0.8)
+    #image = im.get_Screenshot(rects[0][0] - 150 , rects[0][1] - 16, 130, 70)
+    #image = f.filter_pixels(image, 255, 255, 255)
+    #trophies = f.read_text(image)
+    #trophies = f.text_to_Int(trophies)
+    trophies = 0
+    #endregion
+
+    gold, elixir, dark_elixir = res.get_won_res()
+
+    Statistics.add_attack(win, trophies, gold, elixir, dark_elixir)

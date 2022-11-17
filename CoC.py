@@ -7,6 +7,7 @@ import ImageManager as im
 import time as t
 import Resources as res
 import cv2
+import Statistics
 
 def main():
     while(True):
@@ -17,29 +18,16 @@ def main():
         a.attack()
 
 def test():
-    print(army.check_army())
+    
+    a.check_results()
+    pass
 
 print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
-test()
+main()
 
-
-
-
-
-
-
-"""
-print("start")
-while(keyboard.is_pressed('q') == False):
-    pass
-
-print(res.get_resources()[0])
-print(res.get_resources()[1])
-t.sleep(5)
-"""
 
 
 

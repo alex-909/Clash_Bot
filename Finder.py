@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import ImageManager as im
 import time
 
-tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
+#tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
 #tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
 #tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
 
@@ -47,7 +47,9 @@ def filter_pixels(img, _r, _g, _b):
     return img
 
 
-def text_to_Int(text): # needs fixing
+def text_to_Int(text):
+
+    #region pairs
     pairs = [
         ("S", "5"), 
         ("s", "5"), 
@@ -62,9 +64,9 @@ def text_to_Int(text): # needs fixing
         (")", "0"),
         ("D", "0")
         ]
+    #endregion
+    
     for pair in pairs:
         text = text.replace(pair[0], pair[1])
     return int(text)
           
-
-        

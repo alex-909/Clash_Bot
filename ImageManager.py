@@ -80,6 +80,25 @@ def get_image(name):
     if name == "nach_hause":
         path = root + r"\attack\nach_hause.png"  
 
+    #region attack_results
+    
+    if name == "result_gold":
+        path = root + r"\attack\results\gold.png"
+
+    if name == "result_elixir":
+        path = root + r"\attack\results\elixir.png"
+
+    if name == "result_dark_elixir":
+        path = root + r"\attack\results\dark_elixir.png"
+
+    if name == "result_trophie":
+        path = root + r"\attack\results\trophie.png"
+
+    if name == "win":
+        path = root + r"\attack\results\win.png"
+
+    #endregion
+
     #endregion
 
     #region troops
@@ -148,8 +167,7 @@ def get_image(name):
         path = root + r"\buildings\air_defence\air_defence_" + str(level) + ".png"
 
     #endregion
-
-        
+    
     return cv2.imread(path)    
 
 
