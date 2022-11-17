@@ -146,14 +146,6 @@ def check_results():
         win = "Loose"
     #endregion
 
-    #region trophies
-    rects = f.find_image(im.get_fullScreenshot(), im.get_image("result_trophie"), 0.8)
-    image = im.get_Screenshot(rects[0][0] - 150 , rects[0][1] - 16, 130, 70)
-    image = f.filter_pixels(image, 255, 255, 255)
-    trophies = f.read_text(image)
-    trophies = f.text_to_Int(trophies)
-    #endregion
-
     gold, elixir, dark_elixir = res.get_won_res()
 
-    Statistics.add_attack(win, trophies, gold, elixir, dark_elixir)
+    Statistics.add_attack(win, gold, elixir, dark_elixir)

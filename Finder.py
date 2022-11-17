@@ -6,8 +6,8 @@ import ImageManager as im
 import time
 
 #tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
-#tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
-tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
+tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
+#tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
 
 def find_image(base, obj, threshold):
     result = cv2.matchTemplate(base,obj,cv2.TM_CCOEFF_NORMED)
@@ -70,7 +70,6 @@ def text_to_Int(text):
         ]
     #endregion
 
-    
     for pair in pairs:
         text = text.replace(pair[0], pair[1])
 
@@ -81,6 +80,7 @@ def text_to_Int(text):
         else:
             result += letter
     
+    result = result[:-1]
 
     print("test to int: ", {int(result)})
     return int(result)

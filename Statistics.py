@@ -5,7 +5,7 @@ wb = openpyxl.load_workbook("statistics.xlsx")
 
 
 
-def add_attack(win, trophies, gold, elixir, dark_elixir):        # wird in der fight_over() Methode in Attack.py aufgerufen
+def add_attack(win, gold, elixir, dark_elixir):        # wird in der fight_over() Methode in Attack.py aufgerufen
     ws = wb['Angriffe']
     time = datetime.datetime.now()
 
@@ -21,10 +21,9 @@ def add_attack(win, trophies, gold, elixir, dark_elixir):        # wird in der f
         
     ws['A' + str(line)].value = time
     ws['B' + str(line)].value = win
-    ws['C' + str(line)].value = trophies
-    ws['D' + str(line)].value = gold
-    ws['E' + str(line)].value = elixir
-    ws['F' + str(line)].value = dark_elixir
+    ws['C' + str(line)].value = gold
+    ws['D' + str(line)].value = elixir
+    ws['E' + str(line)].value = dark_elixir
 
 
     wb.save("statistics.xlsx")

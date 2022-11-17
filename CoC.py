@@ -20,9 +20,7 @@ def main():
         a.attack()
 
 def test():
-    c.drag_top_right()
-    res.collect_res()
-    u.upgrade()
+    army.check_spells()
     pass
 
 
@@ -30,8 +28,8 @@ print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
-#test()
-main()
+test()
+#main()
 
 
 

@@ -38,12 +38,10 @@ def check_troops():
     for i in troops:
         rects = f.find_image(im.get_fullScreenshot(),im.get_image(i),0.7)
         if(len(rects) > 0):
-            image = im.get_Screenshot(rects[0][0] + 10, rects[0][1] - 55, 105, 75)
+            image = im.get_Screenshot(rects[0][0] + 10, rects[0][1] - 45, 105, 55)
             image = f.filter_pixels(image, 255, 255, 255)
             image = im.resize(image, 500)
             s = f.read_text(image)
-            s = s[1:]
-            print(s)
             s = f.text_to_Int(s)
         else:
             s = "0"
@@ -77,8 +75,6 @@ def check_spells():
             image = f.filter_pixels(image, 255, 255, 255)
             image = im.resize(image, 500)
             s = f.read_text(image)
-            s = s[1:]
-            print(s)
             s = f.text_to_Int(s)
         else:
             s = "0"
