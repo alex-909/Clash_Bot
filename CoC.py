@@ -9,6 +9,7 @@ import Resources as res
 import cv2
 import Clicker as c
 import Statistics
+import pytesseract
 
 def main():
     while(True):
@@ -20,7 +21,8 @@ def main():
         a.attack()
 
 def test():
-    army.check_spells()
+    s = res.get_resources()
+    print(s)
     pass
 
 

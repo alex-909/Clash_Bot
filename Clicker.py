@@ -49,4 +49,18 @@ def last_press_time():
 
 def refresh_time():
     lastPress = get_time()
+
+def zoom_out():     
+    pyautogui.moveTo(860, 540)
+    pyautogui.keyDown('ctrl')     
+    pyautogui.scroll(-2000000)
+    time.sleep(0.1)
+    pyautogui.scroll(-2000000)
+    time.sleep(0.1)
+    pyautogui.scroll(-2000000)
+    time.sleep(0.1)
+    pyautogui.scroll(-2000000)
+    time.sleep(0.1)
+    pyautogui.scroll(-2000000)
+    pyautogui.keyUp('ctrl')   
     

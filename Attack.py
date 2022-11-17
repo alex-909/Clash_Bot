@@ -25,7 +25,7 @@ def attack():
     place_army(troop_amounts, hero_amounts, spell_amounts)
 
     fight_over()
-    check_starbonus
+    check_starbonus()
     
     a.new_troops()
 
@@ -57,7 +57,7 @@ def checkEnemy():
     return (goldNumber > desired_gold)
 
 def place_army(troop_amounts, hero_amounts, spell_amounts):
-
+    Clicker.zoom_out()
     destroy_air_defence(spell_amounts[0])
 
     Clicker.drag_top_left()
@@ -134,7 +134,8 @@ def fight_over():
 def check_starbonus():
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("escape"), 0.7)
     Clicker.click(rects)
-    time.sleep(1)    
+    time.sleep(1)
+    Clicker.zoom_out()    
 
 def check_results():
 

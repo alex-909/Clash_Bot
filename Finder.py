@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import ImageManager as im
 import time
 
-#tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
-tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
+tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
+#tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
 #tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
 
 def find_image(base, obj, threshold):
@@ -48,13 +48,14 @@ def filter_pixels(img, _r, _g, _b):
 
 
 def text_to_Int(text):
-
     if(text == ""):
         return 0
 
     #region pairs
     pairs = [
+        ("\n", ""),
         ("S", "5"), 
+        ("$", "5"), 
         ("s", "5"), 
         (" ", ""),
         ("I", "1"),
@@ -62,7 +63,7 @@ def text_to_Int(text):
         ("l", "1"), 
         ("o","0"),
         ("O","0"),
-        #("n", "0"),
+        ("n", "0"),
         ("(", "0"),
         (")", "0"),
         ("D", "0"),
@@ -79,9 +80,7 @@ def text_to_Int(text):
             result += "0"
         else:
             result += letter
-    
-    result = result[:-1]
 
-    print("test to int: ", {int(result)})
+    print("text to int: ", {int(result)})
     return int(result)
           

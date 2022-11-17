@@ -4,7 +4,7 @@ import Clicker
 import time
 import Resources as res
 
-res_threshold = 3000000;
+res_threshold = 3000000
 
 def upgrade():
 
@@ -14,7 +14,6 @@ def upgrade():
         return
 
     n = number_of_builders()
-    n=1
     
     open_buildermenu()
 
