@@ -5,7 +5,7 @@ import time
 import Resources as res
 import Statistics
 
-res_threshold = 3000000
+res_threshold = 1000000
 
 def upgrade():
 
@@ -39,7 +39,7 @@ def open_buildermenu():
     Clicker.drag_bottom_right()
     rects = f.find_image(im.get_fullScreenshot(), im.get_image("builder"), 0.7)
     Clicker.click(rects)
-    Clicker.drag_top_builder_menu()
+    
 
 def upgrade_wall(gold, elixir):
     find_upgrade("Mauer")
@@ -67,6 +67,18 @@ def find_upgrade(obj):
     height = 60
     width = box_x2 - box_x1
     found = False
+    
+    for i in range(30):
+            x1 = box_x1
+            y1 = 150 + (i*20)
+            image = im.get_Screenshot(x1,y1, width, height)
+            s = f.read_text(image)
+            if(obj in s):
+                found = True
+                print("found!")
+                Clicker.click_xy(x1 + 20, y1 + 30)
+                break
+    Clicker.drag_top_builder_menu()
 
     while(not found):
         for i in range(30):

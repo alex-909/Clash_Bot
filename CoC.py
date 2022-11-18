@@ -15,7 +15,8 @@ def main():
     while(True):
         while(not army.army_done()):
             res.collect_res()
-            t.sleep(20)
+            u.upgrade()
+            t.sleep(1)
         a.attack()
 
 def test():
