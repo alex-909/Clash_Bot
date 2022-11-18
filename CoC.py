@@ -15,14 +15,11 @@ def main():
     while(True):
         while(not army.army_done()):
             res.collect_res()
-            u.upgrade()
-            t.sleep(30)
- 
+            t.sleep(20)
         a.attack()
 
 def test():
-    s = res.get_resources()
-    print(s)
+    u.upgrade()
     pass
 
 
@@ -30,8 +27,8 @@ print("start")
 while(keyboard.is_pressed('q') == False):
     pass
 
-test()
-#main()
+#test()
+main()
 
 
 

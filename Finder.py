@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import ImageManager as im
 import time
 
-tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
-#tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
+#tesseract_path = r"C:\Users\Alex\AppData\Local\Tesseract-OCR\tesseract.exe"
+tesseract_path = r"C:\Users\philipp\AppData\Local\Tesseract-OCR\tesseract.exe"
 #tesseract_path = r"D:\MeineDaten\Programmieren\Python\Tesseract\tesseract.exe"
 
 def find_image(base, obj, threshold):

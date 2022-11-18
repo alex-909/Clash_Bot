@@ -28,3 +28,22 @@ def add_attack(win, gold, elixir, dark_elixir):        # wird in der fight_over(
 
     wb.save("statistics.xlsx")
 
+def add_upgrade(upgrade, gold, elixir):
+    ws = wb['Upgrades']
+    time = datetime.datetime.now()
+
+    full = True
+    line = 1
+
+    while(full):
+        if(ws['A' + str(line)].value == None):
+            full = False
+        else:
+            line = line + 1
+
+    ws['A' + str(line)].value = time
+    ws['B' + str(line)].value = upgrade
+    ws['C' + str(line)].value = gold
+    ws['D' + str(line)].value = elixir
+
+    wb.save("statistics.xlsx")
