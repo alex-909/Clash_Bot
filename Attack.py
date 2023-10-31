@@ -10,7 +10,7 @@ import Resources as res
 desired_gold = 300_000
 air_defence_HP = [800,850,900,950,1000,1050,1100,1200,1300,1400,1500,1650,1750]
 lightning_damage = [150,180,210,240,270,320,400,480,560,600]
-lightning_level = 6
+lightning_level = 7
 troops = ["barb", "dragon"]
 heroes = ["king", "queen"]
 spells = ["lightning"]
